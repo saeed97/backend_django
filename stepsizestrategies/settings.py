@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'strategies',
-    
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -121,7 +120,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SECURE_SSL_REDIRECT = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
