@@ -1,0 +1,104 @@
+{% extends "base.html" %} {% block content %}
+
+{% load capitalize %}
+<div class="row">
+    <div class="col-sm">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/projects">Projects</a>
+            </li>
+            <li class="breadcrumb-item active">{{ project.title }}</li>
+        </ol>
+    </div>
+</div>
+<div class="row align-items-center justify-content-center mb-4">
+    <div class="jumbotron-fluid">
+        <h1 class="display-4" align="center">{{ project.title }}</h1>
+        {% if project.looking_for_members %}
+        <h3 align="center"><span class="badge badge-primary">Looking for Members</span></h3>
+        {% endif %}
+        {% if project.image %}
+        <div align="center"><img src="{{ project.image.url }}" title="{{ project.title }}" alt="{{ project.description|linebreaksbr }}"></div>
+        {% endif %}
+        <p class="lead text-center">{{ project.description|linebreaksbr }}</p>
+        <hr class="my-4">
+        <p class="lead text-center">
+            {{ project.likes.count }}
+            {% if request.user.is_authenticated %} {% if liked %}
+            <i class="fas fa-thumbs-up like-btn" title="Unlike this project"></i>
+            {% else %}
+            <i class="far fa-thumbs-up like-btn" title="Like this project"></i>
+            {% endif %} {% endif %} {% if can_edit %}
+            <a href="edit" class="btn btn-primary btn-sm mr-3">Edit</a>
+            {% endif %} {% if can_delete %}
+            <a href="delete" class="btn btn-danger btn-sm">Delete</a>
+            {% endif %}
+            {% if can_request_to_join %}
+            <button class="btn btn-primary btn-sm ml-3" id="request-to-join">Request to Join</button>
+            {% endif %}
+        </p>
+        <div class="alert alert-success alert-dismissible fade" role="alert">
+            An email has been sent to the members of this project.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade" role="alert">
+            Failed to send email to the members of this project. Please contact an administrator.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-9">
+        <h2>Technologies</h2>
+        <p>{{ project.technologies }}</p>
+
+        <h2 class="mt-5">Inspiration</h2>
+        <p>{{ project.inspiration }}</p>
+
+        <h2 class="mt-5">What It Does</h2>
+        <p>{{ project.what_it_does }}</p>
+
+        <h2 class="mt-5">How It Was Built</h2>
+        <p>{{ project.how_it_was_built }}</p>
+
+        <h2 class="mt-5">Challenges</h2>
+        <p>{{ project.challenges }}</p>
+
+        <h2 class="mt-5">Accomplishments</h2>
+        <p>{{ project.accomplishments }}</p>
+
+        <h2 class="mt-5">What We Learned</h2>
+        <p>{{ project.learned }}</p>
+
+        <h2 class="mt-5">What's Next</h2>
+        <p>{{ project.whats_next }}</p>
+    </div>
+    <div class="col-sm-12 col-md-3">
+        <h4>Participated In</h4>
+        {{ project.hackathon.formatted }}
+
+
+        {% block bounty %}
+        {% if project.bounty %}
+        <h4 class="mt-5">Attempted Bounty</h4>
+        <a href="{% url 'bounty-detail' pk=project.bounty.id %}">{{ project.bounty }}</a>
+        {% endif %}
+        {% endblock %}
+
+        <h4 class="mt-5">Created By</h4>
+        <p>
+            {% for user in project.team.all %}
+            <a href="{% url 'profile' pk=user.id %}">
+                {{ user.first_name | capitalize }}
+                {{ user.last_name | capitalize }}</a>{% if not forloop.last %},{% endif %} {% endfor %}
+        </p>
+    </div>
+</div>
+{% endblock %}

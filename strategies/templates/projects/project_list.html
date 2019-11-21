@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load capitalize %}
+
+{% block content %}
+    <h1>Projects</h1>
+    <div class="row">
+        <div class="col-sm">
+            <div class="row mb-3 d-flex flex-row">
+                {% if previous_hackathons %}
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-small btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter Projects by Hackathon
+                        </button>
+                        <div id="hackathon-filter" class="dropdown-menu">
+                            <button type="button" class="dropdown-item active" data-hackathon="hackathon_{{ current_hackathon.id }}">Current Hackathon ({{ current_hackathon }})</button>
+                            {% for hackathon in previous_hackathons %}
+                                <button type="button" class="dropdown-item" data-hackathon="hackathon_{{ hackathon.id }}">{{ hackathon }}</button>
+                            {% endfor %}
+                            <div class="dropdown-divider"></div>
+                            <button type="button" class="dropdown-item" data-hackathon="all">All</button>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="form-check ml-4">
+                    <input id="filterLookingForMembers" class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label" for="filterLookingForMembers">Only Show Projects Looking for Members</label>
+                </div>
+                <div class="mr-auto"></div>
+                <a href="new" class="btn btn-primary mr-3">Add Project</a>
+            </div>
+
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-sm-12 col-md-6 col-lg-4 project-card"
+                    data-hackathon="hackathon_{{ project.hackathon.id }}"
+                    data-looking-for-members="{% if project.looking_for_members %}true{% else %}false{% endif %}">
+                        <div class="card bg-light mb-3" data-url="{% url 'project-detail' pk=project.pk %}">
+                            <div class="card-header">
+                                Project ({{ project.hackathon }})
+                                {% if project.looking_for_members %}
+                                    <span class="badge badge-primary">Looking for Members</span>
+                                {% endif %}
+                                {% if project.bounty %}
+                                    <img src="/static/resources/boba.png"
+                                         class="img-fluid float-right"
+                                         width="20" height="20"
+                                         alt="Attempted bounty">
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ project.title }}</h4>
+                                <p class="card-text">{{ project.description|linebreaksbr|truncatechars:"255" }}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>Team Members: </strong>
+                                    {% for user in project.team.all %}
+                                        <a href="{% url 'profile' pk=user.id %}">
+                                          {{ user.first_name | capitalize }} {{ user.last_name | capitalize }}</a
+                                        >{% if not forloop.last %},{% endif %}
+                                    {% endfor %}
+                                </li>
+                                <li class="list-group-item"><strong>Technologies: </strong>{{ project.technologies }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static "project-grid.js" %}"></script>
+{% endblock %}

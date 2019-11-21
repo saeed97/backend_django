@@ -15,20 +15,20 @@ from django.contrib import messages
 
 def index(request):
 
-    return  render(request, 'graphics/index.html')
+    return  render(request, 'index.html')
 def profile(request):
 
-    return  render(request, 'graphics/profile.html')
+    return  render(request, 'profile.html')
 
 def find(request):
 
-    return  render(request, 'graphics/explore.html')
+    return  render(request, 'explore.html')
 def listing(request):
 
-    return  render(request, 'graphics/listing.html')
+    return  render(request, 'listing.html')
 def about(request):
 
-    return  render(request, 'graphics/contact.html')
+    return  render(request, 'contact.html')
 def login_view(request):
     form = LoginForm(request.POST or None)
     if form.is_valid():
@@ -39,7 +39,7 @@ def login_view(request):
 
         return redirect('index')
 
-    return render(request, 'graphics/login.html')
+    return render(request, 'login.html')
 
 
 def register_view(request):
@@ -54,13 +54,14 @@ def register_view(request):
         login(request, new_user)
         return redirect('index')
 
-    return render(request, 'graphics/register.html')
+    return render(request, 'register.html')
 
 
 def logout_view(request):
     logout(request)
     return redirect('login')
 
-
+def addProduct(request):
+    return render(request,'addProduct.html')
 
      

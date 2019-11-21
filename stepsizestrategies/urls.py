@@ -35,6 +35,7 @@ urlpatterns = [
      url(r'^find/$', strategies.views.find, name="explore"),
      url(r'^listing/$', strategies.views.listing, name="listing"),
      url(r'^profile/$', strategies.views.profile, name="profile"),
+     url(r'^addProduct/$', strategies.views.addProduct, name="addProduct"),
 
 
 
