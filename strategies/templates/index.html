@@ -105,7 +105,7 @@
 
                             <!-- Add listings btn -->
                             <div class="dorne-add-listings-btn">
-                                <a href="{% static 'addProduct' %}" class="btn dorne-btn">+ Add Project</a>
+                                <a href="{% url 'addProduct' %}" class="btn dorne-btn">+ Add Project</a>
                             </div>
 
                             
@@ -144,53 +144,7 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
                                 <h6>What are you looking for?</h6>
-                                <form action="#" method="get">
-                                    <select class="custom-select">
-                                        <option selected>Your Destinations</option>
-                                        <option value="1">New York</option>
-                                        <option value="2">Latvia</option>
-                                        <option value="3">Dhaka</option>
-                                        <option value="4">Melbourne</option>
-                                        <option value="5">London</option>
-                                    </select>
-                                    <select class="custom-select">
-                                        <option selected>All Catagories</option>
-                                        <option value="1">Catagories 1</option>
-                                        <option value="2">Catagories 2</option>
-                                        <option value="3">Catagories 3</option>
-                                    </select>
-                                    <select class="custom-select">
-                                        <option selected>Price Range</option>
-                                        <option value="1">$100 - $499</option>
-                                        <option value="2">$500 - $999</option>
-                                        <option value="3">$1000 - $4999</option>
-                                    </select>
-                                    <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                                <h6>What are you looking for?</h6>
-                                <form action="#" method="get">
-                                    <select class="custom-select">
-                                        <option selected>Your Destinations</option>
-                                        <option value="1">New York</option>
-                                        <option value="2">Latvia</option>
-                                        <option value="3">Dhaka</option>
-                                        <option value="4">Melbourne</option>
-                                        <option value="5">London</option>
-                                    </select>
-                                    <select class="custom-select">
-                                        <option selected>All Catagories</option>
-                                        <option value="1">Catagories 1</option>
-                                        <option value="2">Catagories 2</option>
-                                        <option value="3">Catagories 3</option>
-                                    </select>
-                                    <select class="custom-select">
-                                        <option selected>Price Range</option>
-                                        <option value="1">$100 - $499</option>
-                                        <option value="2">$500 - $999</option>
-                                        <option value="3">$1000 - $4999</option>
-                                    </select>
+                                
                                     <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
                                 </form>
                             </div>
@@ -233,46 +187,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="{% static 'img/bg-img/editor-1.jpg' %}" alt="">
-                        <div class="editors-pick-info">
-                            <div class="places-total-destinations d-flex">
-                                <a href="#">New York</a>
-                                <a href="#">1643 Destinations</a>
-                            </div>
-                            <div class="add-more">
-                                <a href="#">+</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.4s">
-                        <img src="{% static '/bg-img/editor-2.jpg' %}" alt="">
-                        <div class="editors-pick-info">
-                            <div class="places-total-destinations d-flex">
-                                <a href="#">Barcelona</a>
-                                <a href="#">943 Destinations</a>
-                            </div>
-                            <div class="add-more">
-                                <a href="#">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.6s">
-                        <img src="{% static 'img/bg-img/editor-3.jpg' %}" alt="">
-                        <div class="editors-pick-info">
-                            <div class="places-total-destinations d-flex">
-                                <a href="#">paris</a>
-                                <a href="#">243 Destinations</a>
-                            </div>
-                            <div class="add-more">
-                                <a href="#">+</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          
             </div>
         </div>
     </section>

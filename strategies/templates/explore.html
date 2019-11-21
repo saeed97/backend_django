@@ -24,6 +24,8 @@
  <link href="{% static 'css/responsive/responsive.css' %}" rel="stylesheet">
  <!-- Responsive CSS -->
  <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet"> 
+ <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+ <link href="{% static 'css/main.css' %}" rel="stylesheet" />
 
 </head>
 
@@ -100,8 +102,8 @@
 
                             <!-- Add listings btn -->
                             <div class="dorne-add-listings-btn">
-                                <a href="#" class="btn dorne-btn">+ Add Project</a>
-                            </div>
+                                    <a href="{% url 'addProduct' %}" class="btn dorne-btn">+ Add Project</a>
+                                </div>
 
                             
                         </div>
@@ -117,188 +119,50 @@
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- Explore Area -->
-    <section class="dorne-explore-area d-md-flex">
+    <section class="dorne-explore-area d-md-flex"></section>
         <!-- Explore Search Area -->
-        <div class="explore-search-area d-md-flex">
-            <!-- Explore Search Form -->
-            <div class="explore-search-form">
-                <h6>What are you looking for?</h6>
-                <!-- Tabs -->
-                <div class="nav nav-tabs" id="heroTab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Places</a>
-                    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-                </div>
-                <!-- Tabs Content -->
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                        <form action="#" method="get">
-                            <select class="custom-select" id="destinations">
-                                <option selected>Your Destinations</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
-                            <select class="custom-select" id="catagories">
-                                <option selected>All Catagories</option>
-                                <option value="1">Catagories 1</option>
-                                <option value="2">Catagories 2</option>
-                                <option value="3">Catagories 3</option>
-                                <option value="3">Catagories 4</option>
-                            </select>
-                            <select class="custom-select" id="price-range">
-                                <option selected>Price Range</option>
-                                <option value="1">$100 - $499</option>
-                                <option value="2">$500 - $999</option>
-                                <option value="3">$1000 - $4999</option>
-                                <option value="3">$5000+</option>
-                            </select>
-                            <select class="custom-select" id="proximity">
-                                <option selected>Proximity</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
-                                <option value="3">Proximity 3</option>
-                                <option value="3">Proximity 4</option>
-                                <option value="3">Proximity 5</option>
-                            </select>
-                            <div class="row mt-md-5 mt-0">
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Accepts Credit Cards</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Bike Parking</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wireless Internet</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Reservations</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Privat Parking</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Smoking Area</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wheelchair Accesible</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Coupons</span>
-                                    </label>
-                                </div>
+        
+                <div class="s004">
+                        <form>
+                          <fieldset>
+                            <legend>WHAT ARE YOU LOOKING FOR?</legend>
+                            <div class="inner-form">
+                              <div class="input-field">
+                                <input class="form-control" id="choices-text-preset-values" type="text" placeholder="Type to search..." />
+                                <button class="btn-search" type="button">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                  </svg>
+                                </button>
+                              </div>
                             </div>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            <div class="suggestion-wrap">
+                              <span>Automation</span>
+                              <span>Confluence</span>
+                              <span>Python</span>
+                              <span>SQL</span>
+                              <span>Security</span>
+                            </div>
+                          </fieldset>
                         </form>
-                    </div>
-                    <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                        <form action="#" method="get">
-                            <select class="custom-select" id="events-destinations">
-                                <option selected>Your Destinations</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
-                            <select class="custom-select" id="events-catagories">
-                                <option selected>All Catagories</option>
-                                <option value="1">Catagories 1</option>
-                                <option value="2">Catagories 2</option>
-                                <option value="3">Catagories 3</option>
-                                <option value="3">Catagories 4</option>
-                            </select>
-                            <select class="custom-select" id="events-price-range">
-                                <option selected>Price Range</option>
-                                <option value="1">$100 - $499</option>
-                                <option value="2">$500 - $999</option>
-                                <option value="3">$1000 - $4999</option>
-                                <option value="3">$5000+</option>
-                            </select>
-                            <select class="custom-select" id="events-proximity">
-                                <option selected>Proximity</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
-                                <option value="3">Proximity 3</option>
-                                <option value="3">Proximity 4</option>
-                                <option value="3">Proximity 5</option>
-                            </select>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Explore Search Result -->
-            <div class="explore-search-result">
-                <!-- Single Features Area -->
-                <div class="single-features-area">
-                    <img src="{% static 'img/bg-img/feature-1.jpg' %}"alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p>FROM $59/night</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>Ibiza</h5>
-                            <p>Party</p>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Features Area -->
                 
-            
-               
-            </div>
-        </div>
+                    </div>
+                    
+                    
+        
         
     </section>
 
-    <!-- ****** Footer Area Start ****** -->
-    <footer class="dorne-footer-area">
-        <div class="container-fluid">
-            <div class="row">
-                   
-            </div>
-        </div>
-    </footer>
+   
     <!-- ****** Footer Area End ****** -->
+    <script src="{%static 'js/choices.js' %}"></script>
+    <script>
+      var textPresetVal = new Choices('#choices-text-preset-values',
+      {
+        removeItemButton: true,
+      });
 
+    </script>
     <!-- jQuery-2.2.4 js -->
     <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
